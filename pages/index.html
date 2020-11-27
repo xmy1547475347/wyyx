@@ -1,32 +1,884 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="./css/index.css">
-<!-- <link rel="stylesheet" href=""> -->
-</head>
-<body>
-  <h1>首页标题123</h1>
-  <div class="box">
-    <h2>一个标题2</h2>
-    <div class="show">
-      <span>一个span标签</span>
-      <p>段落内容。。。</p>
-    </div>
-  </div>
-  <a class="link" href="www.baidu.com">百度</a>
-  <div class="content">
-    <h1 class="content-title">content标题</h1>
-    <div class="content-main">content内容</div>
-  </div>
-  <ul class="list">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-  </ul>
 
-<script src="./js/index.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易严选</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- 点击登录后的遮罩 -->
+    <div id="mask"></div>
+    <!-- 点击登录后的遮罩 -->
+
+    <!-- 点击登录后的弹窗 -->
+    <div id="login">
+        <div id="login_inner">
+            <span class="close">X</span>
+            <div class="login">
+                <span class="phone">手机号登录</span>|
+                <span class="email">邮箱登录</span>
+            </div>
+            <p class="verify">使用密码验证登录</p>
+            <div class="phone_login">
+                <div class="mobile mb16">
+                    <span class="l"><i class="iconfont  iconfont icon-shouji"></i></span>|
+                    <input type="search" placeholder='请输入手机号' class="r">
+                </div>
+                <div class="puzzle mb16">
+                    <div class="puzzle_track"></div>
+                    <div class="slide l">
+                        <span>→</span>
+                    </div>
+                    <div class="puzzle_text">
+                        向右拖动滑块填充拼图
+                    </div>
+                </div>
+                <div class="getverify mb16">
+                    <input type="search" placeholder="请输入短信验证码" class="l">
+                    <button class="r">获取验证码</button>
+                </div>
+                <div class="login_hint">
+                    <i>!</i>
+                    <span>请输入手机号</span>
+                </div>
+            </div>
+            <div class="email_login">
+                <div>
+                    <span class="l"><i class="iconfont  iconfont icon-shouji"></i></span>|
+                    <input type="search" placeholder='邮箱账号' class="r">
+                </div>
+                <div class="div2">
+                    <span class="l"><i class="iconfont  iconfont icon-shouji"></i></span>|
+                    <input type="search" placeholder='请输入密码' class="r">
+                </div>
+            </div>
+            <div class="verify_login">
+                <div>
+                    <span class="l"><i class="iconfont  iconfont icon-shouji"></i></span>|
+                    <input type="search" placeholder='请输入手机号' class="r">
+                </div>
+                <div class="div2">
+                    <span class="l"><i class="iconfont  iconfont icon-shouji"></i></span>|
+                    <input type="search" placeholder='请输入密码' class="r">
+                </div>
+            </div>
+        </div>
+        <div class="shortcut-login">
+            手机号快捷登录
+        </div>
+        <div class="consent">
+            <input type="checkbox">
+            我同意<a href="Javascript:;">《服务条款》</a>和
+            <a href="Javascript:;">《网易隐私政策》</a>
+        </div>
+        <div class="method">
+            <div class="method_left l">
+                <a href="javascript"><i class="iconfont icon-vx"></i></a>
+                <a href="javascript"><i class="iconfont icon-qq"></i></a>
+                <a href="javascript"><i class="iconfont icon-weibo"></i></a>
+                <a href="javascript"><i class="iconfont icon-wangyi"></i></a>
+            </div>
+            <a href="javascript:;" class=" r">
+                遇到问题？
+            </a>
+        </div>
+    </div>
+
+    <!-- 客服，返回顶部 -->
+    <div id="service">
+        <a href="javascript">
+            <img src="./img/hot_sm.jpg">
+            <p class="p1">扫码领</p>
+            <p>APP大额</p>
+            <p>新人红包</p>
+        </a>
+        <div class="service_cen">
+            <a href="javascript:;">
+                <img src="./img/hot_kf.jpg">
+                <p>在线客服</p>
+            </a>
+        </div>
+        <div class="service_btm">
+            <a href="javascript:;">
+                <img src="./img/hot_db.jpg">
+                <p>返回顶部</p>
+            </a>
+        </div>
+    </div>
+    <!-- 客服，返回顶部 -->
+
+    <!-- 点击登录后的弹窗 -->
+
+    <!-- 顶部 -->
+    <div id="title" class="container-fluid">
+        <div class="container title_inner clearfix">
+            <div class="title_inner_inform l">
+                <img src="./img/trumpet.gif">
+                <a href="Javascript:;">关于防止近期不法分子冒充客服实施诈骗的公告</a></div>
+            <div class="title_inner_nav r">
+                <ul>
+                    <li class="title_login"><a href="Javascript:;">登录/注册</a><span class="bg"></span></li>
+                    <li><a href="Javascript:;">我的订单</a><span class="bg"></span></li>
+                    <li><a href="Javascript:;">会员</a><span class="bg"></span></li>
+                    <li><a href="Javascript:;">甄选家</a><span class="bg"></span></li>
+                    <li class="list"><a href="Javascript:;">企业采购<i>&gt;</i></a><span class="bg"></span>
+                        <div>
+                            <div><a href="Javascript:;">企业购</a></div>
+                            <div><a href="Javascript:;">礼品卡</a></div>
+                            <div><a href="Javascript:;" class="last">联系我们</a></div>
+                        </div>
+                    </li>
+                    <li class="list"><a href="Javascript:;">客服服务<i>&gt;</i></a><span class="bg"></span>
+                        <div>
+                            <div><a href="Javascript:;">在线客服</a></div>
+                            <div><a href="Javascript:;">帮助中心</a></div>
+                            <div><a href="Javascript:;">商务合作</a></div>
+                            <div><a href="Javascript:;" class="last">开放平台</a></div>
+                        </div>
+                    </li>
+                    <li class='app'><a href="Javascript:;"><img src="./img/phone.jpg">APP</a>
+                        <div><img src="./img/app.png">
+                            <p>下载领大额新人礼包</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 顶部 -->
+
+    <!-- 头部 -->
+    <div id="header" class="container clearfix">
+        <div class="header_logo l">
+            <h1>
+                <a href="javascript:;" title="网易严选">网易严选</a>
+            </h1>
+        </div>
+        <div class="header_center l">
+            <div class="header_center_search">
+                <div class="l">
+                    <i class="iconfont icon-search"></i>
+                </div>
+                <input type="text" placeholder="12.12省钱卡">
+                <span>搜索</span>
+            </div>
+            <div class="header_center_menu">
+                <a href="javascript:;" class="color">新人首单0元</a>
+                <a href="javascript:;" class="color">下雪备冬暖</a>
+                <a href="javascript:;" class="color">白赚42元</a>
+                <a href="javascript:;">宁静同款</a>
+                <a href="javascript:;">黄龄同款</a>
+            </div>
+        </div>
+        <div class="header_shopping r">
+            <i>购物车</i>
+            <span class="r">0</span>
+        </div>
+    </div>
+    <!-- 头部 -->
+
+    <!-- 导航 -->
+    <div id="nav" class="container">
+        <ul class="clearfix">
+            <li class="active"><a href="javascript:;">首页</a></li>
+            <li><a href="javascript:;">居家生活</a></li>
+            <li><a href="javascript:;">服饰鞋包</a></li>
+            <li><a href="javascript:;">美食酒水</a></li>
+            <li><a href="javascript:;">个护清洁</a></li>
+            <li><a href="javascript:;">母婴亲子</a></li>
+            <li><a href="javascript:;">运动旅行</a></li>
+            <li><a href="javascript:;">数码家电</a></li>
+            <li><a href="javascript:;">严选全球</a></li>
+            <li><a href="javascript:;">为你严选</a></li>
+            <li><a href="javascript:;">众筹</a></li>
+        </ul>
+    </div>
+    <!-- 导航 -->
+
+    <!-- 下拉时的导航 -->
+    <div id="nav2" class="container-fluid">
+        <div id="nav2_inner" class="container clearfix">
+            <div class="nav2_logo l">
+                <h1>
+                    <a href="javascript:;" title="网易严选">网易严选
+                    </a>
+                </h1>
+            </div>
+            <ul class="nav2_nav l clearfix">
+                <li class="active"><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">居家生活</a></li>
+                <li><a href="javascript:;">服饰鞋包</a></li>
+                <li><a href="javascript:;">美食酒水</a></li>
+                <li><a href="javascript:;">个护清洁</a></li>
+                <li><a href="javascript:;">母婴亲子</a></li>
+                <li><a href="javascript:;">运动旅行</a></li>
+                <li><a href="javascript:;">数码家电</a></li>
+                <li><a href="javascript:;">严选全球</a></li>
+            </ul>
+            <div class="nav2_right r">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 下拉时的导航 -->
+
+
+
+    <!-- banner图 -->
+    <div id="banner" class="container-fluid">
+        <a href="javascript:;"></a>
+    </div>
+    <!-- banner图 -->
+
+    <!-- 新品首发 -->
+    <div id="first" class="container-fluid">
+        <div id="first_inner" class="container">
+            <div class="first_inner_text clearfix">
+                <h2 class="l"><a href="javascript:;">新品首发</a></h2>
+                <p class="l">为你寻觅世间好物</p>
+                <a href="javascript:;" class="r">
+                    更多新品&gt;
+                </a>
+            </div>
+            <div class="first_inner_list clearfix">
+                <div>
+                    <ul>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="first_inner_list clearfix">
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="first_inner_list clearfix">
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="first_inner_list clearfix">
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_img">
+                                <a href="javascript:;" class="list_img1">
+                                    <img src="./img/first1.webp">
+                                </a>
+                                <a href="javascript:;" class="list_img2">
+                                    <img src="./img/first2.webp">
+                                </a>
+                            </div>
+                            <div class="list_text">
+                                <h3><a href="javascript:;">2020新果上市，南非碧根果
+                                        <br>仁 150克</a></h3>
+                                <p><span>￥46</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="first_prev">&lt;</div>
+            <div class="first_next">&gt;</div>
+            <div class="first_hot">
+                <dl>
+                    <dt>- 热销榜 -</dt>
+                    <dd class="d1">
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists1.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    全站<br>
+                                    热销榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists2.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    居家<br>
+                                    生活榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists3.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    服饰<br>
+                                    鞋包榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists4.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    美食<br>
+                                    酒水榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists5.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    数码<br>
+                                    家电榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists6.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    个护<br>
+                                    清洁榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists7.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    运动<br>
+                                    排行榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists8.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    母婴<br>
+                                    亲子榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">
+                            <div class="clearfix">
+                                <div class="hot_img l">
+                                    <img src="./img/hotLists9.webp" alt="">
+                                </div>
+                                <p class="hot_text l">
+                                    全球<br>
+                                    特色榜
+                                </p>
+                            </div>
+                        </a>
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 新品首发 -->
+
+    <!-- 人气推荐 -->
+    <div id="recommend" class="container-fluid">
+        <div id="recommend_inner" class="container">
+            <div class="recommend_text">
+                <h2 class="l"><a href="javascript:;">人气推荐</a></h2>
+                <p class='l active'>编辑推荐</p>
+                <p class='l'>热销总榜</p>
+                <a href='javascript:;' class="r">更多推荐&gt;</a>
+            </div>
+            <dl class="recommend_list clearfix">
+                <dt class="l">
+                    <a href="javascript:;" class="recommend_list_img">
+                        <img src="./img/recommend1.webp">
+                    </a>
+                    <div class="recommend_list_text">
+                        <a href="javascript">严选礼品卡 500元面值</a>
+                        <p>￥500</p>
+                    </div>
+                </dt>
+                <dd class="l">
+                    <a href="javascript:;">
+                        <img src="./img/recommend2.webp">
+                    </a>
+                    <div>
+                        <a href="javascript:;">飞天53度贵州茅台酒 5<br>
+                            00毫升
+                        </a>
+                        <p>￥1499</p>
+                    </div>
+                </dd>
+                <dd class="l">
+                    <a href="javascript:;">
+                        <img src="./img/recommend2.webp">
+                    </a>
+                    <div>
+                        <a href="javascript:;">飞天53度贵州茅台酒 5<br>
+                            00毫升
+                        </a>
+                        <p>￥1499</p>
+                    </div>
+                </dd>
+                <dd class="l">
+                    <a href="javascript:;">
+                        <img src="./img/recommend2.webp">
+                    </a>
+                    <div>
+                        <a href="javascript:;">飞天53度贵州茅台酒 5<br>
+                            00毫升
+                        </a>
+                        <p>￥1499</p>
+                    </div>
+                </dd>
+                <dd class="l">
+                    <a href="javascript:;">
+                        <img src="./img/recommend2.webp">
+                    </a>
+                    <div>
+                        <a href="javascript:;">飞天53度贵州茅台酒 5<br>
+                            00毫升
+                        </a>
+                        <p>￥1499</p>
+                    </div>
+                </dd>
+                <dd class="l">
+                    <a href="javascript:;">
+                        <img src="./img/recommend2.webp">
+                    </a>
+                    <div>
+                        <a href="javascript:;">飞天53度贵州茅台酒 5<br>
+                            00毫升
+                        </a>
+                        <p>￥1499</p>
+                    </div>
+                </dd>
+                <dd class="l">
+                    <a href="javascript:;">
+                        <img src="./img/recommend2.webp">
+                    </a>
+                    <div>
+                        <a href="javascript:;">飞天53度贵州茅台酒 500毫升
+                        </a>
+                        <p>￥1499</p>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- 人气推荐 -->
+
+    <!-- 限时购 -->
+    <div id="limit" class="container">
+        <div class="limit_title clearfix">
+            <h2><a href="javascript">限时购</a></h2>
+            <a href="javascript">更多抢购&gt;</a>
+        </div>
+        <dl class="limit_list clearfix">
+            <dt>
+                <a href="javascript:;">
+                    <img src="./img/limit1.jpg">
+                </a>
+            </dt>
+            <dd>
+                <a href="javascript:;">
+                    <img src="./img/limit2.webp">
+                </a>
+                <div>
+                    <a href="javascript:;">男士自动扣 荔枝纹皮带</a>
+                    <p class="p1">舒适摔纹牛皮，便捷自动扣</p>
+                    <div class="clearfix">
+                        <div></div>
+                        <span>还剩0件</span>
+                    </div>
+                    <p class="p2">限时价<span>￥121</span><i>￥169</i></p>
+                    <button>去看看</button>
+                </div>
+            </dd>
+            <dd>
+                <a href="javascript:;">
+                    <img src="./img/limit2.webp">
+                </a>
+                <div>
+                    <a href="javascript:;">男士自动扣 荔枝纹皮带</a>
+                    <p class="p1">舒适摔纹牛皮，便捷自动扣</p>
+                    <div class="clearfix">
+                        <div></div>
+                        <span>还剩0件</span>
+                    </div>
+                    <p class="p2">限时价<span>￥121</span><i>￥169</i></p>
+                    <button>去看看</button>
+                </div>
+            </dd>
+            <dd>
+                <a href="javascript:;">
+                    <img src="./img/limit2.webp">
+                </a>
+                <div>
+                    <a href="javascript:;">男士自动扣 荔枝纹皮带</a>
+                    <p class="p1">舒适摔纹牛皮，便捷自动扣</p>
+                    <div class="clearfix">
+                        <div></div>
+                        <span>还剩0件</span>
+                    </div>
+                    <p class="p2">限时价<span>￥121</span><i>￥169</i></p>
+                    <button>去看看</button>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <!-- 限时购 -->
+
+    <!-- 底部 -->
+    <div id="footer" class="container-fluid">
+        <div id="state" class="container">
+            <div class="state_serve">
+                <h2>客户服务</h2>
+                <div>
+                    <a class="service l">
+                        <i class="iconfont icon-kefu"></i>
+                        <p>在线客服</p>
+                    </a>
+                    <a class="back l">
+                        <i class="iconfont icon-xinxi"></i>
+                        <p>用户反馈</p>
+                    </a>
+                </div>
+            </div>
+            <div class="state_center">
+                <h2>何为严选</h2>
+                <div>
+                    <p>网易原创生活类电商品牌，秉承网易一贯的严谨态度，我们深入世界各地，从源头全程严格把控商品生产环节，力求帮消费者甄选到优质的商品</p>
+                    <div class="clearfix">
+                        <span class="l">关注我们：</span>
+                        <a href="javascript:;" class="qq">
+                            <div class="qq_sm">
+                                <img src="./img/yx.jpg">
+                            </div>
+                        </a>
+                        <a href="javascript:;" class="vx">
+                            <div class="vx_sm">
+                                <img src="./img/yx.jpg">
+                            </div>
+                        </a>
+                        <a href="javascript:;" class="wb"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="state_download">
+                <h2>扫码下载严选APP</h2>
+                <img src="./img/yxxz.jpg">
+                <p>下载领大额新人红包</p>
+            </div>
+        </div>
+        <div id="last" class="container-fluid">
+            <div class="last_title container">
+                <div class="wy l clearfix">
+                    <i class="l"></i>
+                    <p class="l">网易自营电商</p>
+                </div>
+                <div class="th l clearfix">
+                    <i class="l"></i>
+                    <p class="l">30天无忧退换货</p>
+                </div>
+                <div class="by l clearfix">
+                    <i class="l"></i>
+                    <p class="l">满99元免邮费</p>
+                </div>
+                <div class="pz l clearfix">
+                    <i class="l"></i>
+                    <p class="l">品质保证</p>
+                </div>
+            </div>
+            <div class="last_last container">
+                <div class="last_last_nav clearfix">
+                    <a href="javascript:;" class="l">关于我们</a><span class="l"></span>
+                    <a href="javascript:;" class="l">帮助中心</a><span class="l"></span>
+                    <a href="javascript:;" class="l">售后服务</a><span class="l"></span>
+                    <a href="javascript:;" class="l">配送与验收</a><span class="l"></span>
+                    <a href="javascript:;" class="l">商务合作</a><span class="l"></span>
+                    <a href="javascript:;" class="l">企业采购</a><span class="l"></span>
+                    <a href="javascript:;" class="l">开放平台</a><span class="l"></span>
+                    <a href="javascript:;" class="l">搜索推荐</a><span class="l"></span>
+                    <a href="javascript:;" class="l">友情链接</a><span class="l"></span>
+                    <a href="javascript:;" class="l">廉正举报</a>
+                </div>
+                <p class="p1 clearfix">
+                    <a href="javascript:;">食品经营许可证：JY13301080111719</a>
+                    <a href="javascript:;">出版物经营许可证：新出发滨字第0132号</a>
+                    <span>妙得ICP证号：ICP 证浙B2-20160106</span>
+                    <a href="javascript:;">浙杭食药监械经营备20171029号</a>
+                    <a href="javascript:;">营业执照</a>
+                    <span>网易公司版权所有 © 1997-2020</span>
+                </p>
+                <p class="p2">
+                    <a href="javascript:;">无线电发射设备销售备案：42202011096855</a>
+                    <a href="javascript:;">（浙杭）网械企备字[2019]第00119号</a>
+                    <span>粤）网械平台备字（2019）第00004号</span>
+                    <span>（粤）-非经营性-2016-0023</span>
+                </p>
+                <p>
+                    <span>浙江省网络食品销售第三方平台提供者备案：浙网食A33010009</span>
+                    <a href="javascript:;">单用途商业预付卡备案证：330100AAC0024<img src="./img/guohui.jpg"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
 </body>
+<script src="./js/utils.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>
+
 </html>
